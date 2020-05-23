@@ -1,12 +1,14 @@
 # Solutions
 - Find solution to JSON Exercise under __data_processing/json_exercise.py__
 - Find solution to XML Exercise under __data_processing/xml_exercise.py__
+- Find solutions to Test Automation Task under __test_automation_task/exercises.py__
 
 ## Requirements:
 ### Required python modules:
 Please install the following modules via commands below:
 
 `pip install selenium`
+`pip install pyhamcrest`
 ### Webdriver related requirements:
 The solution is currently testing in chrome, thus chromedriver needs to be installed
 and correctly configured. To do so, please follow instructions below:
