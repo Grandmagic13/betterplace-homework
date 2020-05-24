@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 from test_automation_task.constants import *
 from test_automation_task.custom_matchers.has_number_of_elements_greater_than import has_number_of_elements_greater_than
 from test_automation_task.custom_matchers.wait_for_matcher import waits_to_have
+from test_automation_task.page_objects.featured_dropdown_grid_category_page import FeaturedDropdownGridCategoryPage
 from test_automation_task.page_objects.featured_file_filtering_page import FeaturedFileFilteringPage
 from selenium.webdriver.support import expected_conditions as ec
 
@@ -44,3 +45,21 @@ class Exercises(unittest.TestCase):
         # Assert that results contains more than 12 items
 
         assert_that(page, has_number_of_elements_greater_than(12, FeaturedFileFilteringPage.TILE_SORTED_HITS_LOCATOR))
+
+    def test_exercise_2(self):
+        # Exercise 2.
+        # http://www.smartclient.com/smartgwt/showcase/#featured_dropdown_grid_category
+
+        page = FeaturedDropdownGridCategoryPage(self.driver)
+        page.go_to_page_url()
+
+        # Select from dropdown row which will meet all criteria
+
+
+
+        # 1.	Item contains „Exercise”
+        # 2.	Units contains  Ea
+        # 3.	Unit Cost greater than 1.1
+
+        # TODO delete, only for observation purposes
+        time.sleep(2.0)
