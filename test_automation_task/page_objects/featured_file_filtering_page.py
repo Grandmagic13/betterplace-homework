@@ -13,6 +13,7 @@ class FeaturedFileFilteringPage(SmartClientPage):
     MAX_LIFE_SPAN_SLIDER_RANGE_VALUES = (By.XPATH, "//*[@class='sliderRange']/div")
     SORT_ORDER_LOCATOR = (By.XPATH, "//label[text()='Sort by']/following::span[@class='comboBoxItemPicker']")
     ASCENDING_CHECKBOX_LOCATOR = (By.XPATH, "//label[text()='Ascending']/preceding-sibling::span")
+    TILE_SORTED_HITS_LOCATOR = (By.XPATH, "//td[@class='commonName']/nobr")
 
     def __init__(self, driver):
         super(FeaturedFileFilteringPage, self).__init__(driver)
