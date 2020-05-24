@@ -14,8 +14,7 @@ class SmartClientPage:
     def go_to_page_url(self):
         self.driver.get(self.base_page)
 
-    def send_keys_to_xpath(self, xpath, keys):
-        locator = (By.XPATH, xpath)
+    def send_keys_to_element(self, locator, keys):
         assert_that(self, waits_to_have(ec.element_to_be_clickable, locator))
-        element = self.driver.find_element_by_xpath(xpath)
+        element = self.driver.find_element(*locator)
         element.send_keys(keys)
