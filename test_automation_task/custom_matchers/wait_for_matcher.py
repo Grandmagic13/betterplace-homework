@@ -8,20 +8,20 @@ from test_automation_task.constants import DEFAULT_WAIT_TIME
 class WaitsToHave(BaseMatcher):
 
     def __init__(self, expected_condition, locator):
-        self.expected_condition = expected_condition(locator)
+        self.expected_condition = expected_condition
         self.locator = locator
 
     def _matches(self, page_object):
         self.page_object = page_object
         try:
-            WebDriverWait(page_object.driver, DEFAULT_WAIT_TIME).until(self.expected_condition)
+            WebDriverWait(page_object.driver, DEFAULT_WAIT_TIME).until(self.expected_condition(self.locator))
             return True
         except TimeoutException:
             return False
 
     def describe_to(self, description):
         page_object_class = self.page_object.__class__.__name__
-        expected_condition_name =  self.expected_condition.__class__.__name__
+        expected_condition_name =  self.expected_condition.__name__
         expected_message = "Page ({0}) to meet condition '{1}' for locator: {2}"
         description.append_text(expected_message.format(page_object_class, expected_condition_name, self.locator))
 
