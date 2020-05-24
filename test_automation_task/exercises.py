@@ -1,14 +1,10 @@
 import time
 import unittest
 
-from hamcrest import assert_that
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 
 from test_automation_task.constants import *
-from test_automation_task.custom_matchers.wait_for_matcher import waits_to_have
 from test_automation_task.page_objects.featured_file_filtering_page import FeaturedFileFilteringPage
-from selenium.webdriver.support import expected_conditions as ec
 
 
 class Exercises(unittest.TestCase):
@@ -37,7 +33,9 @@ class Exercises(unittest.TestCase):
         page.select_sort_order(FeaturedFileFilteringPage.SORT_ORDER_OPTION_LIFE_SPAN)
 
         # 4.	Select checkbox  to Ascending
-        #
+
+        page.tick_ascending_checkbox()
+
         # Assert that results contains more than 12 items
 
         # TODO delete, only for observation purposes

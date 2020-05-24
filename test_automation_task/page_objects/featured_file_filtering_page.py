@@ -12,6 +12,7 @@ class FeaturedFileFilteringPage(SmartClientPage):
     MAX_LIFE_SPAN_THUMB_LOCATOR = (By.XPATH, "//*[@class='hSliderThumb']")
     MAX_LIFE_SPAN_SLIDER_RANGE_VALUES = (By.XPATH, "//*[@class='sliderRange']/div")
     SORT_ORDER_LOCATOR = (By.XPATH, "//label[text()='Sort by']/following::span[@class='comboBoxItemPicker']")
+    ASCENDING_CHECKBOX_LOCATOR = (By.XPATH, "//label[text()='Ascending']/preceding-sibling::span")
 
     def __init__(self, driver):
         super(FeaturedFileFilteringPage, self).__init__(driver)
@@ -19,6 +20,9 @@ class FeaturedFileFilteringPage(SmartClientPage):
 
     def __create_subpage_url(self):
         return "{0}/{1}".format(self.base_page, "#featured_tile_filtering")
+
+    def tick_ascending_checkbox(self):
+        self.click(self.ASCENDING_CHECKBOX_LOCATOR)
 
     def select_sort_order(self, option):
         option_locator = (By.XPATH, "//div[text()='{0}']".format(option))
