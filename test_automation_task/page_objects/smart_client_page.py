@@ -1,5 +1,4 @@
 from hamcrest import assert_that
-from selenium.webdriver.common.by import By
 
 from test_automation_task.custom_matchers.wait_for_matcher import waits_to_have
 from selenium.webdriver.support import expected_conditions as ec
@@ -18,3 +17,13 @@ class SmartClientPage:
         assert_that(self, waits_to_have(ec.element_to_be_clickable, locator))
         element = self.driver.find_element(*locator)
         element.send_keys(keys)
+
+    def find_element(self, locator):
+        return self.driver.find_element(*locator)
+
+    def find_elements(self, locator):
+        return self.driver.find_elements(*locator)
+
+    def find_clickable(self, locator):
+        assert_that(self, waits_to_have(ec.element_to_be_clickable, locator))
+        return self.driver.find_element(*locator)
