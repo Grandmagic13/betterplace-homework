@@ -34,16 +34,7 @@ class Exercises(unittest.TestCase):
 
         # 3.	Sort order by „Life Span”
 
-        item_picker_locator = (By.XPATH, "//label[text()='Sort by']/following::span[@class='comboBoxItemPicker']")
-        life_span_option_locator = (By.XPATH, "//div[text()='Life Span']")
-
-        assert_that(self, waits_to_have(ec.element_to_be_clickable, item_picker_locator))
-        self.driver.find_element(*item_picker_locator).click()
-
-        assert_that(self, waits_to_have(ec.element_to_be_clickable, life_span_option_locator))
-        self.driver.find_element(*life_span_option_locator).click()
-
-
+        page.select_sort_order(FeaturedFileFilteringPage.SORT_ORDER_OPTION_LIFE_SPAN)
 
         # 4.	Select checkbox  to Ascending
         #

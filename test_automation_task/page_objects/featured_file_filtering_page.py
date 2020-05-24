@@ -5,11 +5,13 @@ from test_automation_task.page_objects.smart_client_page import SmartClientPage
 
 
 class FeaturedFileFilteringPage(SmartClientPage):
+    SORT_ORDER_OPTION_LIFE_SPAN = "Life Span"
 
     ANIMAL_TEXT_INPUT_LOCATOR = (By.XPATH, "//label[text()='Animal']/following::input")
     MAX_LIFE_SPAN_TRACK_LOCATOR = (By.XPATH, "//*[@class='hSliderTrack']")
     MAX_LIFE_SPAN_THUMB_LOCATOR = (By.XPATH, "//*[@class='hSliderThumb']")
     MAX_LIFE_SPAN_SLIDER_RANGE_VALUES = (By.XPATH, "//*[@class='sliderRange']/div")
+    SORT_ORDER_LOCATOR = (By.XPATH, "//label[text()='Sort by']/following::span[@class='comboBoxItemPicker']")
 
     def __init__(self, driver):
         super(FeaturedFileFilteringPage, self).__init__(driver)
@@ -17,6 +19,11 @@ class FeaturedFileFilteringPage(SmartClientPage):
 
     def __create_subpage_url(self):
         return "{0}/{1}".format(self.base_page, "#featured_tile_filtering")
+
+    def select_sort_order(self, option):
+        option_locator = (By.XPATH, "//div[text()='{0}']".format(option))
+        self.click(self.SORT_ORDER_LOCATOR)
+        self.click(option_locator)
 
     def send_keys_to_animal_input(self, keys):
         self.send_keys_to_element(self.ANIMAL_TEXT_INPUT_LOCATOR, keys)

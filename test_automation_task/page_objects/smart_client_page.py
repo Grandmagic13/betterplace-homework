@@ -27,3 +27,6 @@ class SmartClientPage:
     def find_clickable(self, locator):
         assert_that(self, waits_to_have(ec.element_to_be_clickable, locator))
         return self.driver.find_element(*locator)
+
+    def click(self, locator):
+        self.find_clickable(locator).click()
