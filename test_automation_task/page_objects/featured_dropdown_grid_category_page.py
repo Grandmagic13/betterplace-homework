@@ -1,5 +1,4 @@
-from test_automation_task.page_objects.common_functions import create_subpage_url
-from test_automation_task.page_objects.smart_client_page import SmartClientPage
+from test_automation_task.page_objects.smart_client_page import *
 
 
 class FeaturedDropdownGridCategoryPage(SmartClientPage):

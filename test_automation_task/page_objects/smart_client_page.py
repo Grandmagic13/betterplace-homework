@@ -30,3 +30,11 @@ class SmartClientPage:
 
     def click(self, locator):
         self.find_clickable(locator).click()
+
+
+def create_subpage_url(base_page, sub_address):
+    return "{0}/{1}".format(base_page, sub_address)
+
+
+def generate_combo_box_xpath(label):
+    return "//label[text()='{0}']/following::span[@class='comboBoxItemPicker']".format(label)

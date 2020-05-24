@@ -1,8 +1,7 @@
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 
-from test_automation_task.page_objects.common_functions import create_subpage_url
-from test_automation_task.page_objects.smart_client_page import SmartClientPage
+from test_automation_task.page_objects.smart_client_page import *
 
 
 class FeaturedFileFilteringPage(SmartClientPage):
@@ -12,7 +11,7 @@ class FeaturedFileFilteringPage(SmartClientPage):
     MAX_LIFE_SPAN_TRACK_LOCATOR = (By.XPATH, "//*[@class='hSliderTrack']")
     MAX_LIFE_SPAN_THUMB_LOCATOR = (By.XPATH, "//*[@class='hSliderThumb']")
     MAX_LIFE_SPAN_SLIDER_RANGE_VALUES = (By.XPATH, "//*[@class='sliderRange']/div")
-    SORT_ORDER_LOCATOR = (By.XPATH, "//label[text()='Sort by']/following::span[@class='comboBoxItemPicker']")
+    SORT_ORDER_LOCATOR = (By.XPATH, generate_combo_box_xpath("Sort by"))
     ASCENDING_CHECKBOX_LOCATOR = (By.XPATH, "//label[text()='Ascending']/preceding-sibling::span")
     TILE_SORTED_HITS_LOCATOR = (By.XPATH, "//td[@class='commonName']/nobr")
 
