@@ -1,16 +1,14 @@
 import time
 import unittest
 
-from hamcrest import assert_that, is_, greater_than
+from hamcrest import assert_that
+from pytest import fail
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 
 from test_automation_task.constants import *
 from test_automation_task.custom_matchers.has_number_of_elements_greater_than import has_number_of_elements_greater_than
-from test_automation_task.custom_matchers.wait_for_matcher import waits_to_have
 from test_automation_task.page_objects.featured_dropdown_grid_category_page import FeaturedDropdownGridCategoryPage
 from test_automation_task.page_objects.featured_file_filtering_page import FeaturedFileFilteringPage
-from selenium.webdriver.support import expected_conditions as ec
 
 
 class Exercises(unittest.TestCase):
@@ -55,11 +53,25 @@ class Exercises(unittest.TestCase):
 
         # Select from dropdown row which will meet all criteria
 
-
-
         # 1.	Item contains „Exercise”
+
+        item_criteria = lambda item: "Exercise" in item
+
         # 2.	Units contains  Ea
+
+        units_criteia = lambda units: "Ea" in units
+
         # 3.	Unit Cost greater than 1.1
 
-        # TODO delete, only for observation purposes
-        time.sleep(2.0)
+        unit_cost_criteria = lambda unit_cost: float(unit_cost) > 1.1
+        criteria = {
+            FeaturedDropdownGridCategoryPage.ITEM: item_criteria,
+            FeaturedDropdownGridCategoryPage.UNITS: units_criteia,
+            FeaturedDropdownGridCategoryPage.UNIT_COST: unit_cost_criteria
+        }
+        item_element = page.select_and_return_item_based_on_criteria(criteria)
+        if item_element is None:
+            fail("No item found with attributes")
+
+        # # TODO delete, only for observation purposes
+        # time.sleep(2.0)
