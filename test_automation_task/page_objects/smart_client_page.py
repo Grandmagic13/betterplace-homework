@@ -1,4 +1,5 @@
 from hamcrest import assert_that
+from selenium.webdriver import ActionChains
 
 from test_automation_task.custom_matchers.wait_for_matcher import waits_to_have
 from selenium.webdriver.support import expected_conditions as ec
@@ -30,6 +31,11 @@ class SmartClientPage:
 
     def click(self, locator):
         self.find_clickable(locator).click()
+
+    def scroll_down_dropdown(self, scroll_thumb, y_offset):
+        actions = ActionChains(self.driver)
+        actions.drag_and_drop_by_offset(scroll_thumb, 0, y_offset)
+        actions.perform()
 
 
 def create_subpage_url(base_page, sub_address):
