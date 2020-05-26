@@ -17,7 +17,7 @@ class FeaturedFileFilteringPage(SmartClientPage):
 
     def __init__(self, driver):
         super(FeaturedFileFilteringPage, self).__init__(driver)
-        self.base_page = create_subpage_url(self.base_page, "#featured_tile_filtering")
+        self.url = create_subpage_url(self.url, "#featured_tile_filtering")
 
     def tick_ascending_checkbox(self):
         self.click(self.ASCENDING_CHECKBOX_LOCATOR)

@@ -18,7 +18,7 @@ class FeaturedDropdownGridCategoryPage(SmartClientPage):
 
     def __init__(self, driver):
         super(FeaturedDropdownGridCategoryPage, self).__init__(driver)
-        self.base_page = create_subpage_url(self.base_page, "#featured_dropdown_grid_category")
+        self.url = create_subpage_url(self.url, "#featured_dropdown_grid_category")
 
     def select_and_return_item_based_on_criteria(self, criteria):
         self.click(self.DROPDOWN_ARROW_LOCATOR)

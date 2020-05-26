@@ -1,36 +1,12 @@
-from hamcrest import assert_that
 from selenium.webdriver import ActionChains
 
-from tests.custom_matchers.wait_for_matcher import waits_to_have
-from selenium.webdriver.support import expected_conditions as ec
+from tests.page_objects.page import Page
 
 
-class SmartClientPage:
+class SmartClientPage(Page):
 
     def __init__(self, driver):
-        self.base_page = "http://www.smartclient.com/smartgwt/showcase"
-        self.driver = driver
-
-    def go_to_page_url(self):
-        self.driver.get(self.base_page)
-
-    def send_keys_to_element(self, locator, keys):
-        assert_that(self, waits_to_have(ec.element_to_be_clickable, locator))
-        element = self.driver.find_element(*locator)
-        element.send_keys(keys)
-
-    def find_element(self, locator):
-        return self.driver.find_element(*locator)
-
-    def find_elements(self, locator):
-        return self.driver.find_elements(*locator)
-
-    def find_clickable(self, locator):
-        assert_that(self, waits_to_have(ec.element_to_be_clickable, locator))
-        return self.driver.find_element(*locator)
-
-    def click(self, locator):
-        self.find_clickable(locator).click()
+        super(SmartClientPage, self).__init__(driver, url="http://www.smartclient.com/smartgwt/showcase")
 
     def scroll_down_dropdown(self, scroll_thumb, y_offset):
         actions = ActionChains(self.driver)
