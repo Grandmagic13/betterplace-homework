@@ -72,6 +72,3 @@ class Exercises(unittest.TestCase):
         item_element = page.select_and_return_item_based_on_criteria(criteria)
         if item_element is None:
             fail("No item found with attributes")
-
-        # # TODO delete, only for observation purposes
-        # time.sleep(2.0)
