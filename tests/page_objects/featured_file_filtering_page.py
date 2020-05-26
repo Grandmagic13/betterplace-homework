@@ -1,7 +1,7 @@
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 
-from test_automation_task.page_objects.smart_client_page import *
+from tests.page_objects.smart_client_page import *
 
 
 class FeaturedFileFilteringPage(SmartClientPage):

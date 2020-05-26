@@ -1,7 +1,7 @@
 # Solutions
 - Find solution to JSON Exercise under __data_processing/json_exercise.py__
 - Find solution to XML Exercise under __data_processing/xml_exercise.py__
-- Find solutions to Test Automation Task under __test_automation_task/exercises.py__
+- Find solutions to Test Automation Task under __tests/test_automation_task.py__
 
 ## Requirements:
 ### Required python modules:

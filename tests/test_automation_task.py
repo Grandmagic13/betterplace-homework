@@ -5,10 +5,10 @@ from hamcrest import assert_that
 from pytest import fail
 from selenium import webdriver
 
-from test_automation_task.constants import *
-from test_automation_task.custom_matchers.has_number_of_elements_greater_than import has_number_of_elements_greater_than
-from test_automation_task.page_objects.featured_dropdown_grid_category_page import FeaturedDropdownGridCategoryPage
-from test_automation_task.page_objects.featured_file_filtering_page import FeaturedFileFilteringPage
+from tests.constants import *
+from tests.custom_matchers.has_number_of_elements_greater_than import has_number_of_elements_greater_than
+from tests.page_objects.featured_dropdown_grid_category_page import FeaturedDropdownGridCategoryPage
+from tests.page_objects.featured_file_filtering_page import FeaturedFileFilteringPage
 
 
 class Exercises(unittest.TestCase):

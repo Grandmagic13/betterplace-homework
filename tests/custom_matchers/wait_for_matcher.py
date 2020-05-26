@@ -2,7 +2,7 @@ from hamcrest.core.base_matcher import BaseMatcher
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 
-from test_automation_task.constants import DEFAULT_WAIT_TIME
+from tests.constants import DEFAULT_WAIT_TIME
 
 
 class WaitsToHave(BaseMatcher):

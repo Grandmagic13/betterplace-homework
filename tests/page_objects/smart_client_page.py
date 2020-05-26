@@ -1,7 +1,7 @@
 from hamcrest import assert_that
 from selenium.webdriver import ActionChains
 
-from test_automation_task.custom_matchers.wait_for_matcher import waits_to_have
+from tests.custom_matchers.wait_for_matcher import waits_to_have
 from selenium.webdriver.support import expected_conditions as ec
 
 

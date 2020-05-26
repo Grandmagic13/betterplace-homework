@@ -5,8 +5,8 @@ from hamcrest.library.number.ordering_comparison import OrderingComparison
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 
-from test_automation_task.constants import DEFAULT_WAIT_TIME
-from test_automation_task.custom_matchers.wait_for_matcher import WaitsToHave
+from tests.constants import DEFAULT_WAIT_TIME
+from tests.custom_matchers.wait_for_matcher import WaitsToHave
 from selenium.webdriver.support import expected_conditions as ec
 
 
