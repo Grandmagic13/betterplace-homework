@@ -2,6 +2,7 @@
 - Find solution to JSON Exercise under __data_processing/json_exercise.py__
 - Find solution to XML Exercise under __data_processing/xml_exercise.py__
 - Find solutions to Test Automation Task under __tests/test_automation_task.py__
+- FInd solutions to Performance Test Task - SDET under __tests/performance_test_task.py__
 
 ## Requirements:
 ### Required python modules:

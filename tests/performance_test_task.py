@@ -9,7 +9,7 @@ from tests.page_objects.amazon import AmazonPage
 
 
 class PerformanceTest(unittest.TestCase):
-    def test_exercise_1(self):
+    def test_search_performance(self):
         self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(DEFAULT_WAIT_TIME)
         page = AmazonPage(self.driver)
