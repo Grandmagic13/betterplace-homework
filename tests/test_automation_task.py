@@ -9,11 +9,13 @@ from tests.constants import *
 from tests.custom_matchers.has_number_of_elements_greater_than import has_number_of_elements_greater_than
 from tests.page_objects.featured_dropdown_grid_category_page import FeaturedDropdownGridCategoryPage
 from tests.page_objects.featured_file_filtering_page import FeaturedFileFilteringPage
+from tests.page_objects.featured_nested_grid_page import FeaturedNestedGridPage
 
 
 class Exercises(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
+        self.driver.maximize_window()
         self.driver.implicitly_wait(DEFAULT_WAIT_TIME)
 
     def test_exercise_1(self):
@@ -72,3 +74,18 @@ class Exercises(unittest.TestCase):
         item_element = page.select_and_return_item_based_on_criteria(criteria)
         if item_element is None:
             fail("No item found with attributes")
+
+    def test_exercise_3(self):
+        # Exercise 3.
+        # http://www.smartclient.com/smartgwt/showcase/#featured_nested_grid
+
+        page = FeaturedNestedGridPage(self.driver)
+        page.go_to_page_url()
+        page.change_sub_items_for_items_with_name_containing_correction()
+
+        # for each item containing name „Correction” do following actions
+        # •	sub items change „Description” to incremental number starting from 1 and proceeding random 10 characters
+        # ex. 1 asdfasdfasdf, 2 asdasdasdas …
+
+        #TODO delete
+        time.sleep(2)
