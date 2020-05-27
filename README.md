@@ -2,7 +2,7 @@
 - Find solution to JSON Exercise under __data_processing/json_exercise.py__
 - Find solution to XML Exercise under __data_processing/xml_exercise.py__
 - Find solutions to Test Automation Task under __tests/test_automation_task.py__
-- FInd solutions to Performance Test Task - SDET under __tests/performance_test_task.py__
+- Find solutions to Performance Test Task - SDET under __tests/performance_test_task.py__
 
 ## Requirements:
 ### Required python modules:
@@ -18,3 +18,6 @@ you are currently using) from __[here](https://sites.google.com/a/chromium.org/c
 and save it to your *webdrivers* directory (e.g. `$USERHOME/webdrivers`)
 - Add your webdrivers directory (e.g. `$USERHOME/webdrivers`) to your `PATH` environment
 variable on your operating system.
+
+# Dev notes
+Sadly haven't had time to do the optional task, I still hope that this will suffice.
