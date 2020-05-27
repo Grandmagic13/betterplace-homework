@@ -2,7 +2,7 @@ import concurrent.futures
 import unittest
 from concurrent.futures import as_completed
 
-from hamcrest import assert_that, less_than_or_equal_to, only_contains
+from hamcrest import assert_that, less_than_or_equal_to, only_contains, greater_than_or_equal_to
 from selenium import webdriver
 
 from tests.constants import DEFAULT_WAIT_TIME
@@ -14,7 +14,10 @@ class PerformanceTest(unittest.TestCase):
         with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
             number_of_threads = 10
             futures = [executor.submit(self.measure_search) for i in range(number_of_threads)]
-            response_times = [completed.result() for completed in as_completed(futures)]
+            response_times = [completed.result()["response time"] for completed in as_completed(futures)]
+            hit_numbers = [completed.result()["number of hits"] for completed in as_completed(futures)]
+
+        assert_that(hit_numbers, only_contains(greater_than_or_equal_to(5)))
         assert_that(response_times, only_contains(less_than_or_equal_to(1000)))
 
     def measure_search(self):
@@ -23,4 +26,4 @@ class PerformanceTest(unittest.TestCase):
         page = AmazonPage(driver)
         page.go_to_page_url()
         page.search_for_item("Playstation 4")
-        return page.measure_response_time_in_milliseconds()
+        return page.measure_response_time_in_milliseconds_and_get_number_of_hits()
