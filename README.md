@@ -9,6 +9,7 @@
 Please install the following modules via commands below:
 
 `pip install selenium`
+
 `pip install pyhamcrest`
 ### Webdriver related requirements:
 The solution is currently testing in chrome, thus chromedriver needs to be installed
