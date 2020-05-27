@@ -1,4 +1,3 @@
-import time
 import unittest
 
 from hamcrest import assert_that
@@ -81,11 +80,9 @@ class Exercises(unittest.TestCase):
 
         page = FeaturedNestedGridPage(self.driver)
         page.go_to_page_url()
-        page.change_sub_items_for_items_with_name_containing_correction()
 
         # for each item containing name „Correction” do following actions
-        # •	sub items change „Description” to incremental number starting from 1 and proceeding random 10 characters
-        # ex. 1 asdfasdfasdf, 2 asdasdasdas …
+        #   sub items change „Description” to incremental number starting from 1 and proceeding random 10 characters
+        #   ex. 1 asdfasdfasdf, 2 asdasdasdas …
 
-        #TODO delete
-        time.sleep(2)
+        page.change_sub_items_for_items_with_name_containing_correction()
