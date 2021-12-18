@@ -18,7 +18,7 @@ class BetterPlaceTests(unittest.TestCase):
     def setUp(self):
         chrome_options = Options()
         mobile_emulation = {
-            "deviceMetrics": {"width": 380, "height": 640, "pixelRatio": 3.0},
+            "deviceMetrics": {"width": 380, "height": 800, "pixelRatio": 3.0},
             "userAgent": "Mozilla/5.0 (Linux; Android 11; Pixel 2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Mobile Safari/537.36"
         }
         chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
@@ -30,8 +30,7 @@ class BetterPlaceTests(unittest.TestCase):
         page.go_to_page_url()
         page.close_cookie_banner()
         page.enter_donation_amount("5", override=True)
-
-        # select Überweisung
+        page.choose_direct_deposit_payment_method()
 
         # check payment method collision
 

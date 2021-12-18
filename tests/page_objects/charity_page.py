@@ -7,6 +7,7 @@ class CharityPage(Page):
 
     COOKIES_OKAY_BUTTON_LOCATOR = (By.XPATH, "//div[@class='cookie-content-wrapper']//button[text()='Okay!']")
     DONATION_INPUT_LOCATOR = (By.XPATH, "//div[@class='donations-form-amount-selection']//input[@name='amount_cents']")
+    DIRECT_DEPOSIT_RADIOBUTTON_LOCATOR = (By.XPATH, "//div[contains(@class, 'payment-method-radios')]//span[text()='Überweisung']/preceding-sibling::span")
 
     def __init__(self, driver, toggle_bugged_page=False):
         postfix = "?force-bug=1" if toggle_bugged_page else ""
@@ -18,5 +19,7 @@ class CharityPage(Page):
     def enter_donation_amount(self, text_amount, override=False):
         self.send_keys_to_element(self.DONATION_INPUT_LOCATOR, text_amount, override)
 
+    def choose_direct_deposit_payment_method(self):
+        self.click(self.DIRECT_DEPOSIT_RADIOBUTTON_LOCATOR)
 
 
