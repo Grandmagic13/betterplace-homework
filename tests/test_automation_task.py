@@ -29,8 +29,7 @@ class BetterPlaceTests(unittest.TestCase):
         page = CharityPage(self.driver)
         page.go_to_page_url()
         page.close_cookie_banner()
-
-        # change input to 5€
+        page.enter_donation_amount("5", override=True)
 
         # select Überweisung
 
