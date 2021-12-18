@@ -25,17 +25,26 @@ class BetterPlaceTests(unittest.TestCase):
         self.driver = webdriver.Chrome(options=chrome_options)
         self.driver.maximize_window()
 
-    def test_collision_error(self):
+    def test_collision_error(self): # TODO change maybe later to something more appropriate like prepare donation or sg
         page = CharityPage(self.driver)
         page.go_to_page_url()
         page.close_cookie_banner()
 
         # change input to 5€
 
+        # select Überweisung
+
         # check payment method collision
+
+        # fill form fields
+
+        # go to payment information -> check if page loads? url? text check? sg like that
 
 
         time.sleep(10)
+
+        # TODO modify dev notes
+        # TODO add dev note about how this might have been solved more elegantly with jquery?
 
 
 
