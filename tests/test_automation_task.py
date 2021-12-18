@@ -25,13 +25,21 @@ class BetterPlaceTests(unittest.TestCase):
         page.go_to_page_url()
         page.close_cookie_banner()
         page.enter_donation_amount("5", override=True)
+        page.check_payment_method_radios_collision()
+
         page.choose_direct_deposit_payment_method()
-
-        # check payment method collision
-
         page.fill_form()
         page.submit()
         assert_that(page, waits_to_have(ec.title_contains, CharityPage.RECEIPT_TITLE_LOCATOR))
 
-        # TODO modify dev notes
-        # TODO add dev note about how this might have been solved more elegantly with jquery?
+    def test_submit_donation_on_bugged_page(self):
+        page = CharityPage(self.driver, toggle_bugged_page=True)
+        page.go_to_page_url()
+        page.close_cookie_banner()
+        page.enter_donation_amount("5", override=True)
+        page.check_payment_method_radios_collision()
+
+        page.choose_direct_deposit_payment_method()
+        page.fill_form()
+        page.submit()
+        assert_that(page, waits_to_have(ec.title_contains, CharityPage.RECEIPT_TITLE_LOCATOR))
