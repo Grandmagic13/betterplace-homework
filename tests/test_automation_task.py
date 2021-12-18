@@ -27,7 +27,7 @@ class BetterPlaceTests(unittest.TestCase):
         self.driver = webdriver.Chrome(options=chrome_options)
         self.driver.maximize_window()
 
-    def test_collision_error(self): # TODO change maybe later to something more appropriate like prepare donation or sg
+    def test_submit_donation(self):
         page = CharityPage(self.driver)
         page.go_to_page_url()
         page.close_cookie_banner()
