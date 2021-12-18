@@ -1,8 +1,5 @@
-# Solutions
-- Find solution to JSON Exercise under __data_processing/json_exercise.py__
-- Find solution to XML Exercise under __data_processing/xml_exercise.py__
-- Find solutions to Test Automation Task under __tests/test_automation_task.py__
-- Find solutions to Performance Test Task - SDET under __tests/performance_test_task.py__
+# Solution
+Test cased can be found under __tests/test_automation_task.py__
 
 ## Requirements:
 ### Required python modules:
@@ -21,4 +18,5 @@ and save it to your *webdrivers* directory (e.g. `$USERHOME/webdrivers`)
 variable on your operating system.
 
 # Dev notes
-Sadly haven't had time to do the optional task, I still hope that this will suffice.
+I re-used a framework I've built for an older homework related task, deleted the unnecessary parts and built
+upon that.
