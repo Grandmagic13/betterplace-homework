@@ -34,12 +34,12 @@ class BetterPlaceTests(unittest.TestCase):
 
         # check payment method collision
 
-        # fill form fields
+        page.fill_form()
 
         # go to payment information -> check if page loads? url? text check? sg like that
 
 
-        time.sleep(10)
+        time.sleep(10) # TODO delete at end
 
         # TODO modify dev notes
         # TODO add dev note about how this might have been solved more elegantly with jquery?
