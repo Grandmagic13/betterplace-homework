@@ -8,7 +8,9 @@ from selenium.webdriver.chrome.options import Options
 
 from tests.constants import *
 from tests.custom_matchers.has_number_of_elements_greater_than import has_number_of_elements_greater_than
+from tests.custom_matchers.wait_for_matcher import waits_to_have
 from tests.page_objects.charity_page import CharityPage
+from selenium.webdriver.support import expected_conditions as ec
 from tests.page_objects.featured_dropdown_grid_category_page import FeaturedDropdownGridCategoryPage
 from tests.page_objects.featured_file_filtering_page import FeaturedFileFilteringPage
 from tests.page_objects.featured_nested_grid_page import FeaturedNestedGridPage
@@ -35,11 +37,8 @@ class BetterPlaceTests(unittest.TestCase):
         # check payment method collision
 
         page.fill_form()
-
-        # go to payment information -> check if page loads? url? text check? sg like that
-
-
-        time.sleep(10) # TODO delete at end
+        page.submit()
+        assert_that(page, waits_to_have(ec.title_contains, CharityPage.RECEIPT_TITLE_LOCATOR))
 
         # TODO modify dev notes
         # TODO add dev note about how this might have been solved more elegantly with jquery?
