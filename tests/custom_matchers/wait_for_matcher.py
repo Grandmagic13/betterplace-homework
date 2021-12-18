@@ -14,7 +14,7 @@ class WaitsToHave(BaseMatcher):
     def _matches(self, page_object):
         self.page_object = page_object
         try:
-            WebDriverWait(page_object.driver, DEFAULT_WAIT_TIME).until(self.expected_condition.__call__(self.locator))
+            WebDriverWait(page_object.driver, DEFAULT_WAIT_TIME).until(lambda x: self.expected_condition(self.locator))
             return True
         except TimeoutException:
             return False
